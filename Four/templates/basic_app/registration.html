@@ -1,0 +1,21 @@
+{% extends 'basic_app/base.html' %}
+{% load staticfiles%}
+
+{%block body_block %}
+
+{% if registred %}
+{{registred}}
+<h1>Thank you for registeriing !</h1>
+{% else %}
+<h1>Register here</h1>
+{% if registred %}
+  {% endif %}
+<form enctype="multipart/form-data" method="POST">
+  {% csrf_token%}
+  {{user_form.as_p}}
+  {{profile_form.as_p}}
+  <input type="submit" name="" value="Register">
+
+  {% endif %}
+{% endblock%}
+</form>
